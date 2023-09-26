@@ -28,27 +28,47 @@ const projects = (await getCollection('work'))
 <BaseLayout>
 	<div class="stack gap-20 lg:gap-48">
 		<div class="wrapper stack gap-8 lg:gap-20">
-			<header class="hero">
+			<style>
+				.hero {
+				  display: flex;
+				  flex-direction: column;
+				  align-items: center;
+				  text-align: center;
+				}
+			  
+				.hero .title {
+				  text-align: center;
+				}
+			  
+				.hero .tagline {
+				  text-align: center;
+				}
+			  
+				.hero .roles {
+				  display: flex;
+				  flex-wrap: wrap;
+				  justify-content: center;
+				  margin-top: 20px; /* Adjust as needed */
+				}
+			  
+				.hero .roles .Pill {
+				  margin: 0 10px; /* Adjust as needed */
+				}
+			  </style>
+			  
+			  <header class="hero">
 				<Hero
-					title="Hello, I'm Finn Masters"
-					tagline="And I'm a student who's passionate about programming, filmmaking, and probably something else."
-					align="start"
+				  title="Hello, I'm Finn Masters"
+				  tagline="And I'm a student who's passionate about programming, filmmaking, and Design."
+				  align="center"
 				>
-					<div class="roles">
-						<Pill><Icon icon="code" size="1.33em" /> Developer</Pill>
-						<Pill><Icon icon="camera" size="1.33em" /> Filmmaker</Pill>
-						<Pill><Icon icon="student" size="1.33em" /> Student</Pill>
-					</div>
+				  <div class="roles">
+					<Pill><Icon icon="code" size="1.33em" /> Developer</Pill>
+					<Pill><Icon icon="camera" size="1.33em" /> Filmmaker</Pill>
+					<Pill><Icon icon="student" size="1.33em" /> Student</Pill>
+				  </div>
 				</Hero>
-
-				<img
-					alt="Lime"
-					width="480"
-					height="620"
-					src="/assets/portrait.jpg"
-				/>
-			</header>
-
+			  </header>
 			<Skills />
 		</div>
 
