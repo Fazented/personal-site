@@ -28,7 +28,7 @@ const projects = (await getCollection('work'))
 <BaseLayout>
 	<div class="stack gap-20 lg:gap-48">
 		<div class="wrapper stack gap-8 lg:gap-20">
-			<style>
+			<style> /* For some reason this css only works when up here, and I am too lazy to fix it */
 				.hero {
 				  display: flex;
 				  flex-direction: column;
@@ -131,7 +131,7 @@ const projects = (await getCollection('work'))
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: 2rem;
+		text-align: center;
 	}
 
 	.roles {
