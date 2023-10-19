@@ -26,6 +26,52 @@ const projects = (await getCollection('work'))
 ---
 
 <BaseLayout>
+	<div class="light">
+		<script>
+			const sizes = [1,1,2,3,4];
+
+			//get random position between 1 - 100;
+			function randomPosition(min, max) {
+			  return Math.floor(Math.random() * (max - min + 1)) + min;
+			}
+
+			const body = document.querySelector(".body");
+
+			for (let i = 0; i < 300; i++) {
+  				const top = randomPosition(1,100);
+  				const left = randomPosition(1,100);
+  				const random = Math.floor(Math.random() * sizes.length);
+  				const randomSize = sizes[random];
+  				const div = document.createElement('div');
+  				div.style.position = 'absolute';
+  				div.style.top = top +'%';
+  				div.style.left = left + '%';
+  				div.style.height = randomSize +'px';
+  				div.style.width = randomSize +'px';
+  				div.style.backgroundColor = "#FFFFFF";
+  				div.style.borderRadius = '50%';
+  				if (i <= 50) {
+      				div.classList.add('star1');
+  				}
+  				if (i <= 100 && i > 50) {
+      				div.classList.add('star2');
+  				}
+  				if (i <= 150 && i > 100) {
+      				div.classList.add('star3');
+  				}
+  				if (i <= 200 && i > 150) {
+      				div.classList.add('star4');
+  				}
+  				if (i <= 250 && i > 200) {
+      				div.classList.add('star5');
+  				}
+  				if (i <= 300 && i > 250) {
+      				div.classList.add('star6');
+  				}
+  				document.body.appendChild(div);
+			}
+		</script>
+
 	<div class="stack gap-20 lg:gap-48">
 		<div class="wrapper stack gap-8 lg:gap-20">
 			<style> /* For some reason this css only works when up here, and I am too lazy to fix it */
@@ -123,6 +169,7 @@ const projects = (await getCollection('work'))
 		</main>
 
 		<ContactCTA />
+	</div>
 	</div>
 </BaseLayout>
 
@@ -269,4 +316,54 @@ const projects = (await getCollection('work'))
 			height: 9.5rem;
 		}
 	}
+	$sky_color_dark: #1F2023;
+	$sky_color_light: #424472;
+
+	html {
+    	background-image: linear-gradient($sky_color_dark, $sky_color_light);
+	}
+
+	body { /* remove this and the stars go ontop of everything */
+   		height: 460vh;
+   		width: 100vw;
+   		overflow: hidden;
+	}
+
+
+	.star1 {
+  		animation: 3s linear 1s infinite alternate twinkle;
+	}
+
+	.star2 {
+  		animation: 4s linear 0s infinite alternate twinkle;
+	}
+
+	.star3 {
+  		animation: 3.5s linear 0.5s infinite alternate twinkle;
+	}
+
+	.star4 {
+		animation: 1.25s linear 1.5s infinite alternate twinkle;
+		}
+
+	.star5 {
+  		animation: 4s linear 2s infinite alternate twinkle;
+	}
+
+	.star6 {
+  		animation: 2.5s linear 1s infinite alternate twinkle;
+	}
+
+	@keyframes twinkle {
+  		0% {
+    		opacity: 1;
+  		}
+  		50% {
+    		opacity: 0;
+  		}
+  		100% {
+    		opacity: 1;
+  		}
+	}
+
 </style>
