@@ -1,3 +1,4 @@
+<div class="starry-background">
 <script>
 
     //from https://codepen.io/rkuai/pen/ExLbPWG
@@ -43,6 +44,8 @@ for (let i = 0; i < 300; i++) {
     body.appendChild(div);
 }
 </script>
+<div class="light">
+</div>
 
 <style>
 
@@ -51,15 +54,15 @@ for (let i = 0; i < 300; i++) {
   --sky-color-light: #424472;
 }
 
-html {
-  background-image: linear-gradient(var(--sky-color-dark), var(--sky-color-light));
-}
-
-body {
-  height: 410vh;
-  width: 100vw;
-  overflow: hidden;
-}
+.starry-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+  }
 
 .star1 {
   animation: twinkle 3s linear 1s infinite alternate;
@@ -98,5 +101,4 @@ body {
 }
 </style>
 
-<div class="light">
 
