@@ -27,7 +27,6 @@ const projects = (await getCollection('work'))
 ---
 
 <BaseLayout>
-	<StarBackgound />
 	<div class="light">
 	<div class="stack gap-20 lg:gap-48">
 		<div class="wrapper stack gap-8 lg:gap-20">
@@ -104,17 +103,16 @@ const projects = (await getCollection('work'))
 
 			<section class="section with-background bg-variant">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Mentions</h3>
+					<h3>Certifications</h3>
 					<p>
-						I have been fortunate enough to recieve praise for my work in several publications. Take
-						a look below to learn more.
+						Hopefully coming soon
 					</p>
 				</header>
 
 				<div class="gallery">
 					<Grid variant="small">
 						{
-							['Medium', 'BuzzFeed', 'The Next Web', 'awwwards.', 'TechCrunch'].map((brand) => (
+							[' ', ' ', ' '].map((brand) => (
 								<li class="mention-card">
 									<p>{brand}</p>
 								</li>
@@ -285,45 +283,4 @@ html {
   background-image: linear-gradient(var(--sky-color-dark), var(--sky-color-light));
 }
 
-body {
-  height: 410vh;
-  width: 100vw;
-  overflow: hidden;
-}
-
-.star1 {
-  animation: twinkle 3s linear 1s infinite alternate;
-}
-
-.star2 {
-  animation: twinkle 4s linear 0s infinite alternate;
-}
-
-.star3 {
-  animation: twinkle 3.5s linear 0.5s infinite alternate;
-}
-
-.star4 {
-  animation: twinkle 1.25s linear 1.5s infinite alternate;
-}
-
-.star5 {
-  animation: twinkle 4s linear 2s infinite alternate;
-}
-
-.star6 {
-  animation: twinkle 2.5s linear 1s infinite alternate;
-}
-
-@keyframes twinkle {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 </style>
