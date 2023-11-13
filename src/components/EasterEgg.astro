@@ -1,0 +1,44 @@
+<script>
+  // function to send browser notification.
+  const sendNotification = (title, message) => {
+    // check if the browser supports notifications.
+    if ('Notification' in window) {
+      // Request permission if not already gotten
+      Notification.requestPermission().then((permission) => {
+        if (permission === 'granted') {
+          const notification = new Notification(title, { body: message });
+        }
+      });
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', () => {
+    class KonamiEasterEgg extends HTMLElement {
+      constructor() {
+        super();
+
+        let clickCount = 0;
+        let konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
+
+        const checkKonamiCode = (event) => {
+          if (event.code === konamiCode[clickCount]) {
+            clickCount++;
+
+            if (clickCount === konamiCode.length) {
+              clickCount = 0;
+
+              // message to run
+              sendNotification('hello', 'this is temporary');
+            }
+          } else {
+            clickCount = 0;
+          }
+        };
+
+        document.addEventListener('keydown', checkKonamiCode);
+      }
+    }
+
+    customElements.define('konami-easter-egg', KonamiEasterEgg);
+  });
+</script>

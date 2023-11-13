@@ -11,7 +11,8 @@ import Hero from '../components/Hero.astro';
 import Icon from '../components/Icon.astro';
 import Pill from '../components/Pill.astro';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
-import StarBackgound from '../components/StarBackground.astro'
+import EasterEgg from '../components/EasterEgg.astro';
+// import StarBackgound from '../components/StarBackground.astro'
 
 // Page section components
 import ContactCTA from '../components/ContactCTA.astro';
@@ -27,6 +28,7 @@ const projects = (await getCollection('work'))
 ---
 
 <BaseLayout>
+	<EasterEgg />
 	<div class="stack gap-20 lg:gap-48">
 		<div class="wrapper stack gap-8 lg:gap-20">
 			<style> /* For some reason this css only works when up here, and I am too lazy to fix it */
