@@ -25,8 +25,9 @@ const projects = (await getCollection('work'))
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
 ---
-
+<StarBackgound />
 <BaseLayout>
+	<StarBackgound />
 	<div class="light">
 	<div class="stack gap-20 lg:gap-48">
 		<div class="wrapper stack gap-8 lg:gap-20">
@@ -283,4 +284,45 @@ html {
   background-image: linear-gradient(var(--sky-color-dark), var(--sky-color-light));
 }
 
+body {
+  height: 410vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.star1 {
+  animation: twinkle 3s linear 1s infinite alternate;
+}
+
+.star2 {
+  animation: twinkle 4s linear 0s infinite alternate;
+}
+
+.star3 {
+  animation: twinkle 3.5s linear 0.5s infinite alternate;
+}
+
+.star4 {
+  animation: twinkle 1.25s linear 1.5s infinite alternate;
+}
+
+.star5 {
+  animation: twinkle 4s linear 2s infinite alternate;
+}
+
+.star6 {
+  animation: twinkle 2.5s linear 1s infinite alternate;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 </style>

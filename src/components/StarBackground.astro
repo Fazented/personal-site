@@ -1,3 +1,4 @@
+<div class="light">
 <script>
 
     //from https://codepen.io/rkuai/pen/ExLbPWG
@@ -41,4 +42,60 @@ for (let i = 0; i < 300; i++) {
     }
 
     body.appendChild(div);
-}</script>
+}
+</script>
+
+<style>
+
+:root {
+  --sky-color-dark: #1F2023;
+  --sky-color-light: #424472;
+}
+
+.starry-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+.star1 {
+  animation: twinkle 3s linear 1s infinite alternate;
+}
+
+.star2 {
+  animation: twinkle 4s linear 0s infinite alternate;
+}
+
+.star3 {
+  animation: twinkle 3.5s linear 0.5s infinite alternate;
+}
+
+.star4 {
+  animation: twinkle 1.25s linear 1.5s infinite alternate;
+}
+
+.star5 {
+  animation: twinkle 4s linear 2s infinite alternate;
+}
+
+.star6 {
+  animation: twinkle 2.5s linear 1s infinite alternate;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+</style>
+</div>
