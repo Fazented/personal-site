@@ -3,7 +3,6 @@ import { getCollection } from 'astro:content';
 
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { SpeedInsights } from "@vercel/speed-insights/next"
 
 // Component Imports
 import CallToAction from '../components/CallToAction.astro';
@@ -28,7 +27,6 @@ const projects = (await getCollection('work'))
 // https://docs.astro.build/core-concepts/astro-components/
 ---
 <EasterEgg />
-<SpeedInsights/>
 <BaseLayout>
 	<div class="stack gap-20 lg:gap-48">
 		<div class="wrapper stack gap-8 lg:gap-20">
