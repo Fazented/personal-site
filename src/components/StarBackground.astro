@@ -1,0 +1,101 @@
+<div class="light">
+<script>
+
+    //from https://codepen.io/rkuai/pen/ExLbPWG
+    const sizes = [1, 1, 2, 3, 4];
+
+// Get a random position between 1 - 100;
+function randomPosition(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// Select the body element, not ".body"
+const body = document.body;
+
+for (let i = 0; i < 300; i++) {
+    const top = randomPosition(1, 100);
+    const left = randomPosition(1, 100);
+    const random = Math.floor(Math.random() * sizes.length);
+    const randomSize = sizes[random];
+    const div = document.createElement('div');
+    div.style.position = 'absolute';
+    div.style.top = top + '%';
+    div.style.left = left + '%';
+    div.style.height = randomSize + 'px';
+    div.style.width = randomSize + 'px';
+    div.style.backgroundColor = "#FFFFFF";
+    div.style.borderRadius = '50%';
+
+    // Add star classes based on the index of the loop
+    if (i < 50) {
+        div.classList.add('star1');
+    } else if (i < 100) {
+        div.classList.add('star2');
+    } else if (i < 150) {
+        div.classList.add('star3');
+    } else if (i < 200) {
+        div.classList.add('star4');
+    } else if (i < 250) {
+        div.classList.add('star5');
+    } else if (i < 300) {
+        div.classList.add('star6');
+    }
+
+    body.appendChild(div);
+}
+</script>
+
+<style>
+
+:root {
+  --sky-color-dark: #1F2023;
+  --sky-color-light: #424472;
+}
+
+.starry-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+.star1 {
+  animation: twinkle 3s linear 1s infinite alternate;
+}
+
+.star2 {
+  animation: twinkle 4s linear 0s infinite alternate;
+}
+
+.star3 {
+  animation: twinkle 3.5s linear 0.5s infinite alternate;
+}
+
+.star4 {
+  animation: twinkle 1.25s linear 1.5s infinite alternate;
+}
+
+.star5 {
+  animation: twinkle 4s linear 2s infinite alternate;
+}
+
+.star6 {
+  animation: twinkle 2.5s linear 1s infinite alternate;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+</style>
+</div>

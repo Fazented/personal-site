@@ -69,27 +69,48 @@ import Icon from './Icon.astro';
 
 <script>
 	class ThemeToggle extends HTMLElement {
-		constructor() {
-			super();
-
-			const button = this.querySelector('button')!;
-
-			/** Set the theme to dark/light mode. */
-			const setTheme = (dark: boolean) => {
-				document.documentElement.classList[dark ? 'add' : 'remove']('theme-dark');
-				button.setAttribute('aria-pressed', String(dark));
-			};
-
-			// Toggle the theme when a user clicks the button.
-			button.addEventListener('click', () => setTheme(!this.isDark()));
-
-			// Initialize button state to reflect current theme.
-			setTheme(this.isDark());
-		}
-
-		isDark() {
-			return document.documentElement.classList.contains('theme-dark');
-		}
+	  constructor() {
+		super();
+  
+		const button = this.querySelector('button')!;
+		let clickCount = 0;
+		let clickTimeout;
+  
+		const setTheme = (dark) => {
+		  document.documentElement.classList[dark ? 'add' : 'remove']('theme-dark');
+		  button.setAttribute('aria-pressed', String(dark));
+		};
+  
+		const handleClick = () => {
+		  clickCount++;
+  
+		  if (clickCount === 10) {
+			clickCount = 0;
+  
+			// Toggle rapidly between light and dark modes as an easter egg.
+			for (let i = 0; i < 999; i++) {
+			  setTimeout(() => setTheme(!this.isDark()), i * 10);
+			}
+		  } else {
+			setTheme(!this.isDark());
+  
+			// Reset the counter after 2 seconds (adjust as needed).
+			clearTimeout(clickTimeout);
+			clickTimeout = setTimeout(() => {
+			  clickCount = 0;
+			}, 2000);
+		  }
+		};
+  
+		button.addEventListener('click', handleClick);
+  
+		setTheme(this.isDark());
+	  }
+  
+	  isDark() {
+		return document.documentElement.classList.contains('theme-dark');
+	  }
 	}
+  
 	customElements.define('theme-toggle', ThemeToggle);
-</script>
+  </script>

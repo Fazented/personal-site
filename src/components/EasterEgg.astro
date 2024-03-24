@@ -1,0 +1,31 @@
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    class KonamiEasterEgg extends HTMLElement {
+      constructor() {
+        super();
+                
+        let clickCount = 0;
+        let konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
+
+        const checkKonamiCode = (event) => {
+          if (event.code === konamiCode[clickCount]) {
+            clickCount++;
+
+            if (clickCount === konamiCode.length) {
+              clickCount = 0;
+
+              // message to run
+              alert('this is a test');
+            }
+          } else {
+            clickCount = 0;
+          }
+        };
+
+        document.addEventListener('keydown', checkKonamiCode);
+      }
+    }
+
+    customElements.define('konami-easter-egg', KonamiEasterEgg);
+  });
+</script>

@@ -11,6 +11,8 @@ import Hero from '../components/Hero.astro';
 import Icon from '../components/Icon.astro';
 import Pill from '../components/Pill.astro';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
+import EasterEgg from '../components/EasterEgg.astro';
+// import StarBackgound from '../components/StarBackground.astro'
 
 // Page section components
 import ContactCTA from '../components/ContactCTA.astro';
@@ -24,7 +26,7 @@ const projects = (await getCollection('work'))
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
 ---
-
+<EasterEgg />
 <BaseLayout>
 	<div class="stack gap-20 lg:gap-48">
 		<div class="wrapper stack gap-8 lg:gap-20">
@@ -59,7 +61,7 @@ const projects = (await getCollection('work'))
 			  <header class="hero">
 				<Hero
 				  title="Hello, I'm Finn Masters"
-				  tagline="And I'm a student who's passionate about programming, filmmaking, and Design."
+				  tagline="And I'm a student who's passionate about programming, filmmaking, and photography."
 				  align="center"
 				>
 				  <div class="roles">
@@ -72,7 +74,7 @@ const projects = (await getCollection('work'))
 			<Skills />
 		</div>
 
-		<main class="wrapper stack gap-20 lg:gap-48">
+<!--		<main class="wrapper stack gap-20 lg:gap-48">
 			<section class="section with-background with-cta">
 				<header class="section-header stack gap-2 lg:gap-4">
 					<h3>Selected Work</h3>
@@ -80,8 +82,8 @@ const projects = (await getCollection('work'))
 				</header>
 
 				<div class="gallery">
-					<Grid variant="offset">
-						{
+					<Grid variant="offset"> 
+						{ 
 							projects.map((project) => (
 								<li>
 									<PortfolioPreview project={project} />
@@ -101,17 +103,16 @@ const projects = (await getCollection('work'))
 
 			<section class="section with-background bg-variant">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Mentions</h3>
+					<h3>Certifications</h3>
 					<p>
-						I have been fortunate enough to recieve praise for my work in several publications. Take
-						a look below to learn more.
+						Hopefully coming soon
 					</p>
-				</header>
+				</header>   
 
 				<div class="gallery">
 					<Grid variant="small">
 						{
-							['Medium', 'BuzzFeed', 'The Next Web', 'awwwards.', 'TechCrunch'].map((brand) => (
+							[' ', ' ', ' '].map((brand) => (
 								<li class="mention-card">
 									<p>{brand}</p>
 								</li>
@@ -120,13 +121,19 @@ const projects = (await getCollection('work'))
 					</Grid>
 				</div>
 			</section>
-		</main>
-
+		</main> -->
+		<h1 class="temporary-sign">STILL A WORK IN PROGRESS</h1>
+		<h4 class="temporary-sign">i have no idea what to put here</h4>
 		<ContactCTA />
 	</div>
 </BaseLayout>
 
 <style>
+	.temporary-sign {
+		text-align: center;
+	}
+
+
 	.hero {
 		display: flex;
 		flex-direction: column;
@@ -269,4 +276,18 @@ const projects = (await getCollection('work'))
 			height: 9.5rem;
 		}
 	}
+
+
+/* Star Styles */
+
+:root {
+  --sky-color-dark: #1F2023;
+  --sky-color-light: #424472;
+}
+
+html {
+  background-image: linear-gradient(var(--sky-color-dark), var(--sky-color-light));
+}
+
+
 </style>
