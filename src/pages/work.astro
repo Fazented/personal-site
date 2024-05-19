@@ -10,7 +10,7 @@ import Grid from '../components/Grid.astro';
 
 const projects = (await getCollection('work')).sort(
 	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
-); // need to fix this but im too lazy rn
+);
 ---
 
 <BaseLayout
@@ -21,7 +21,7 @@ const projects = (await getCollection('work')).sort(
 		<main class="wrapper stack gap-8">
 			<Hero
 				title="My Work"
-				tagline="See my most recent projects below to get an idea of my experience. My videography projects can be found on the <a href=https://filmclub.tech>Rolleston College Film Club</a> site, under the filming tab."
+				tagline="See my most recent projects below to get an idea of my experience. My videography projects can be found on the filmclub.tech site, under the filming tab."
 				align="start"
 			/>
 			<Grid variant="offset">
