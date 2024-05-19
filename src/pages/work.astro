@@ -10,7 +10,7 @@ import Grid from '../components/Grid.astro';
 
 const projects = (await getCollection('work')).sort(
 	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
-); // need to fix this but im too lazy rn
+);
 ---
 
 <BaseLayout
